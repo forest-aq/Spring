@@ -10,6 +10,7 @@
     <!--自定义别名-->
     <typeAliases>
         <typeAlias type="com.itheima.domain.User" alias="user"></typeAlias>
+        <typeAlias type="com.itheima.domain.Order" alias="order"></typeAlias>
     </typeAliases>
 
     <!--数据源环境-->
@@ -17,7 +18,7 @@
         <environment id="developement">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property name="dirver" value="${jdbc.driver}"/>
+                <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
                 <property name="username" value="${jdbc.username}"/>
                 <property name="password" value="${jdbc.password}"/>

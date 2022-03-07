@@ -4,5 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.itheima.mapper.OrderMapper">
+    <!--type 为封装的类型， sqlMapConfig.xml中定义了别名-->
+    <resultMap id="orderMap" type="order">
+        <!--手动指定字段与实体属性的映射关系
+            column 数据库表字段名称
+            property 类的属性名称
+        -->
+        <!--主键id表示-->
+        <id column="oid" property="id"></id>
+        <!-- 其他属性 result -->
+        <result column="ordertime" property="ordertime"></result>
+        <result column="total" property="total"></result>
+        <!--user.id  user 也是类别名缩写 在sqlMapConfig.xml有定义-->
+        <result column="uid" property="user.id"></result>
+        <result column="username" property="user.username"></result>
+        <result column="age" property="user.age"></result>
+        <result column="email" property="user.email"></result>
+        <result column="manager_id" property="user.manager_id"></result>
+        <result column="create_time" property="user.create_time"></result>
+    </resultMap>
 
+    <!--注意此处 resultType resultMap-->
+    <select id="findAll" resultMap="orderMap">
+        SELECT *, o.id oid FROM user u, orders o where u.id = o.uid
+    </select>
 </mapper>

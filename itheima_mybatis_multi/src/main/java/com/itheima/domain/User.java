@@ -1,5 +1,12 @@
 package com.itheima.domain;
 
-public class User {
+import java.util.Date;
 
+public class User {
+    private int id;
+    private String username;
+    private int age;
+    private String email;
+    private int manager_id;
+    private Date create_time;
 }
