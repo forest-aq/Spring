@@ -15,13 +15,27 @@
         <!-- 其他属性 result -->
         <result column="ordertime" property="ordertime"></result>
         <result column="total" property="total"></result>
-        <!--user.id  user 也是类别名缩写 在sqlMapConfig.xml有定义-->
-        <result column="uid" property="user.id"></result>
-        <result column="username" property="user.username"></result>
-        <result column="age" property="user.age"></result>
-        <result column="email" property="user.email"></result>
-        <result column="manager_id" property="user.manager_id"></result>
-        <result column="create_time" property="user.create_time"></result>
+        <!--user.id  user Order 类中定义的 private User user-->
+        <!--<result column="uid" property="user.id"></result>-->
+        <!--<result column="username" property="user.username"></result>-->
+        <!--<result column="age" property="user.age"></result>-->
+        <!--<result column="email" property="user.email"></result>-->
+        <!--<result column="manager_id" property="user.manager_id"></result>-->
+        <!--<result column="create_time" property="user.create_time"></result>-->
+        <!--第二种封装方式 user
+            property： 当前实体 order 中的属性名称 private User user
+            javaType: 当前实体 order中的属性类型 User
+        -->
+        <!--javaType user 是 sqlMapConfig中定义的别名-->
+        <association property="user" javaType="user">
+            <id column="uid" property="id"></id>
+            <result column="username" property="username"></result>
+            <result column="age" property="age"></result>
+            <result column="email" property="email"></result>
+            <result column="manager_id" property="manager_id"></result>
+            <result column="create_time" property="create_time"></result>
+        </association>
+
     </resultMap>
 
     <!--注意此处 resultType resultMap-->
