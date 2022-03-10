@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="itheima_mybatis_multi" />
+        <module name="itheima_mybatis_anno" />
       </profile>
     </annotationProcessing>
   </component>
